@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profa AI — Professional Video Editing, Automated</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#121826;
+      --accent:#8b5cf6;
+      --text:#e6e9ef;
+      --muted:#9aa4b2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter,system-ui,Arial;
+      background:linear-gradient(180deg,#070b11,#0b0f14);
+      color:var(--text);
+    }
+    .container{max-width:1200px;margin:auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;letter-spacing:.5px}
+    .btn{background:var(--accent);color:#001018;border:none;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px}
+    .card{background:rgba(255,255,255,.04);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px}
+    h1{font-size:34px;line-height:1.1;margin:0 0 10px;color:var(--accent)}
+    .muted{color:var(--muted)}
+    .badges span{display:inline-block;border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;margin:6px 6px 0 0}
+    .uploader{border:2px dashed rgba(255,255,255,.18);border-radius:16px;padding:28px;text-align:center}
+    .uploader input{display:none}
+    .steps{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+    .step h3{margin:0 0 6px}
+    .footer{opacity:.7;text-align:center;margin:40px 0}
+  
+    @media (min-width: 768px){
+      .hero{grid-template-columns:1.2fr .8fr}
+      .steps{grid-template-columns:repeat(4,1fr)}
+      h1{font-size:44px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><img src="profa-logo.png" alt="Profa AI" style="height:36px;vertical-align:middle;margin-right:10px"/> <span style="color:#8b5cf6;font-weight:800">Profa AI</span></div>
+      <button class="btn">Edit Video</button>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Upload raw video.<br/>Leave as a professional.</h1>
+        <p class="muted">No editors. No timelines. Profa AI automatically cuts silence, fixes colors, stabilizes footage and adds music — in minutes.</p>
+        <div class="badges">
+          <span>Auto-cut silence</span>
+          <span>Studio color</span>
+          <span>Cinematic music</span>
+          <span>AI overlays</span>
+        </div>
+        <div style="margin-top:20px">
+          <div class="muted">AI is working:</div>
+          <div id="ai-log" style="margin-top:8px;font-weight:600"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="uploader">
+          <h3>Live AI Edit Demo</h3>
+          <p class="muted">Raw video → Edited output (sample)</p>
+          <video id="demoVideo" width="100%" autoplay muted loop playsinline style="border-radius:12px;margin-top:12px">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          </video>
+          <p class="muted" style="margin-top:12px">⚡ Demo preview (final output simulated)</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const steps = [
+        'Analyzing audio…',
+        'Removing filler words…',
+        'Stabilizing camera…',
+        'Correcting color…',
+        'Adding music…',
+        'Finalizing edit…'
+      ];
+      let i = 0;
+      const log = document.getElementById('ai-log');
+      setInterval(() => {
+        log.textContent = steps[i % steps.length];
+        i++;
+      }, 1200);
+    </script>
+
+    <section class="steps">
+      <div class="card step"><h3>1. Analyze</h3><p class="muted">Detect noise, silence, filler words & scenes</p></div>
+      <div class="card step"><h3>2. Edit</h3><p class="muted">Auto-cuts, stabilization, color grading</p></div>
+      <div class="card step"><h3>3. Enhance</h3><p class="muted">Music, captions, cinematic overlays</p></div>
+      <div class="card step"><h3>4. Export</h3><p class="muted">Ready for YouTube, Reels & Ads</p></div>
+    </section>
+
+    <div class="footer">© 2025 Profa AI • Demo experience</div>
+  </div>
+</body>
+</html>
